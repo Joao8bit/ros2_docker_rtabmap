@@ -14,4 +14,4 @@ $ docker start ros_humble
 Finally, to access the docker, we will exec it as follows:
 
 $ docker exec -ti ros_humble
-babla
+
