@@ -1,17 +1,17 @@
-# How to build, start, run, exec this docker
+# How to build, start, run and exec this docker
 
 ## Build
 Firstly, we want to run build.sh
-
+```
 $ sh build_n_run.sh
-
+```
 ## Start
-Secondly, we will start the container using the container name we gave it, ros_humble in this case.
-
+The docker will finish building in the workspace, but we want to exit first.
+```
+$ exit
+```
+After that, we will start the docker, then open it (execute)
+```
 $ docker start ros_humble
-
-## Exec
-Finally, to access the docker, we will exec it as follows:
-
-$ docker exec -ti ros_humble
-
+$ docker exec -ti ros_humble bash
+```
