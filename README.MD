@@ -6,9 +6,10 @@ Firstly, we want to run build.sh
 $ sh build_n_run.sh
 ```
 ## Start
-The docker will finish building in the workspace, but we want to exit first.
+The docker will finish building in the workspace, but we want to exit first, and give it display permissions.
 ```
 $ exit
+$ xhost +
 ```
 After that, we will start the docker, then open it (execute)
 ```
