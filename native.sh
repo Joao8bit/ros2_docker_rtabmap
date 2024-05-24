@@ -1,4 +1,4 @@
-
+export ROS_DISTRO=humble
 # Dependencies installation
  apt update && apt install --no-install-recommends -y \
     ninja-build gettext cmake unzip curl build-essential xterm python3-venv \
