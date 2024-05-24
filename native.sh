@@ -9,14 +9,14 @@ export ROS_DISTRO=humble
  echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
 
 # Getting all the source code into the ROS workspace
- mkdir -p /root/ros_ws/src
- cd /root/ros_ws/src/
+ mkdir -p ~/ros_ws/src
+ cd ~/ros_ws/src/
  git clone https://github.com/snt-spacer/leo_simulator-ros2.git
  git clone https://github.com/snt-spacer/leo_common-ros2.git
  git clone https://github.com/snt-spacer/rtabmap_livox.git
 
 # Moving to ws dir to install dependencies
-cd /root/ros_ws/
+cd ~/ros_ws/
 # remove the rosdep sources list if it exists already
  rm /etc/ros/rosdep/sources.list.d/20-default.list
  rosdep init
