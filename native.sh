@@ -10,10 +10,9 @@ echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
 
 # Getting all the source code into the ROS workspace
 mkdir -p ~/ros_ws/src
-cd ~/ros_ws/src/
-git clone https://github.com/snt-spacer/leo_simulator-ros2.git
-git clone https://github.com/snt-spacer/leo_common-ros2.git
-git clone https://github.com/snt-spacer/rtabmap_livox.git
+git clone https://github.com/snt-spacer/leo_simulator-ros2.git ~/ros_ws/src/
+git clone https://github.com/snt-spacer/leo_common-ros2.git ~/ros_ws/src/
+git clone https://github.com/snt-spacer/rtabmap_livox.git ~/ros_ws/src/
 
 # Moving to ws dir to install dependencies
 cd ~/ros_ws/
@@ -21,12 +20,7 @@ cd ~/ros_ws/
 rm /etc/ros/rosdep/sources.list.d/20-default.list
 rosdep init
 rosdep update
-rosdep install --from-paths src -y --ignore-src
+rosdep install --from-paths ros_ws/src/ -y --ignore-src
 
 # Everything is complete, don't forget to build the workspace!
-# This command is greyed because we need to source ROS2 at the same time as we run it,
-# there is a solution but I don't wanna bother to be honest, just colcon build when it's done.
-# RUN colcon build
-
-# Proposed solution: (https://stackoverflow.com/questions/72727733/how-to-use-colcon-build-in-a-dockerfile)
-/bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash; colcon build"
+cd ros_ws && colcon build
