@@ -1,17 +1,17 @@
 # How to build, start, run and exec this docker
 
-## Build
-Firstly, we want to run build.sh
+## 1. Build
+Firstly, we want to run build_n_run.sh (docker), or native.sh for Ubuntu-based distributions.
 ```
 $ sh build_n_run.sh
 ```
-## Start
-The docker will finish building in the workspace, but we want to exit first, and give it display permissions.
+## 2. Start
+2.1 The docker will finish building in the workspace, but we want to exit first, and give it display permissions.
 ```
 $ exit
 $ xhost +
 ```
-After that, we will start the docker, then open it (execute)
+2.2 After that, we will start the docker, then open it (execute)
 ```
 $ docker start ros_humble
 $ docker exec -ti ros_humble bash
@@ -34,3 +34,12 @@ $ ros2 launch rtabmap_livox rtabmap_livox.launch.py
 $ ros2 launch leo_teleop key_teleop.launch.xml
 $ ros2 launch leo_teleop joy_teleop.launch.xml
 ```
+# Q&A
+## 1. If I exit the docker or open another terminal, how do I start it again?
+- Run the 'docker exec -ti ros_humble bash' command again.
+## 2. My docker has stopped, how do I start it again? 
+- Run the commands from section 2.2 of this README.
+## 3. I cannot launch any GUI applications!
+- Exit the docker, and try running the 'xhost +' command again, it should fix things.
+
+Any other related questions please let me know privately or in the common communications chat!
