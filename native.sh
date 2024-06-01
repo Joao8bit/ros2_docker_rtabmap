@@ -1,6 +1,8 @@
+# WARNING: This method is not really recommended, refer to the docker method if possible.
+
 export ROS_DISTRO=humble
 # Dependencies installation
-apt update && apt install --no-install-recommends -y \
+sudo apt update && apt install --no-install-recommends -y \
     ninja-build gettext cmake unzip curl build-essential xterm python3-venv \
     ros-$ROS_DISTRO-rmw-cyclonedds-cpp ros-$ROS_DISTRO-rviz2 iputils-ping \
     ros-$ROS_DISTRO-rtabmap-ros ros-$ROS_DISTRO-navigation2 ros-$ROS_DISTRO-nav2-bringup ros-$ROS_DISTRO-leo-description
@@ -17,7 +19,7 @@ git clone https://github.com/snt-spacer/rtabmap_livox.git ~/ros_ws/src/
 # Moving to ws dir to install dependencies
 cd ~/ros_ws/
 # remove the rosdep sources list if it exists already
-rm /etc/ros/rosdep/sources.list.d/20-default.list
+sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
 rosdep init
 rosdep update
 rosdep install --from-paths ros_ws/src/ -y --ignore-src
