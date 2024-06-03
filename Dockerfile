@@ -25,11 +25,6 @@ RUN apt update && apt install --no-install-recommends -y \
 
 # Preparing ROS2 directly at boot of the docker 
 RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
-# Some convenient aliases
-RUN echo "alias source='source ~/ros_ws/install/setup.bash'" >> ~/.bashrc
-RUN echo "alias source='alias gazebo='ros2 launch leo_gz_bringup leo_gz.launch.py sim_world:=~/ros_ws/src/leo_simulator-ros2/leo_gz_worlds/worlds/lunalab2024.sdf''" >> ~/.bashrc
-RUN echo "alias source='alias rtabmap='ros2 launch rtabmap_livox loc_rtabmap.launch.py''" >> ~/.bashrc
-RUN echo "alias source='alias joy_teleop='ros2 launch leo_teleop joy_teleop.launch.xml''" >> ~/.bashrc
 
 # Getting all the source code into the ROS workspace
 RUN mkdir -p /root/ros_ws/src
@@ -52,4 +47,4 @@ RUN rosdep install --from-paths src -y --ignore-src
 # RUN colcon build
 
 # Proposed solution: (https://stackoverflow.com/questions/72727733/how-to-use-colcon-build-in-a-dockerfile)
-# RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash; colcon build"
+RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash; colcon build"
