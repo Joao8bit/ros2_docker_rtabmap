@@ -48,5 +48,10 @@ alias joy_teleop='ros2 launch leo_teleop joy_teleop.launch.xml'
 - Run the commands from section 2 of this README.
 ## 3. I cannot launch any GUI applications!
 - Exit the docker, and try running the 'xhost +' command again, it should fix things.
+## 4. How can I stop it from working in the background?
+- Exit the docker and stop it using:
+```
+$ docker stop ros_humble
+```
 
 Any other related questions please let me know privately or in the common communications chat!
