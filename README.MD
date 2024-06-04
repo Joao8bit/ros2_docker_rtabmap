@@ -40,6 +40,7 @@ alias luna_source='source ~/ros_ws/install/setup.bash'
 alias luna_gazebo='ros2 launch leo_gz_bringup leo_gz.launch.py sim_world:=~/ros_ws/src/leo_simulator-ros2/leo_gz_worlds/worlds/lunalab2024.sdf'
 alias luna_rtabmap='ros2 launch rtabmap_livox rtabmap_livox.launch.py'
 alias joy_teleop='ros2 launch leo_teleop joy_teleop.launch.xml'
+alias key_teleop='ros2 launch leo_teleop key_teleop.launch.xml'
 ```
 # Q&A
 ## 1. If I exit the docker or open another terminal, how do I start it again?
