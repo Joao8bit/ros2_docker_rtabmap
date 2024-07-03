@@ -1,4 +1,4 @@
-FROM ros:humble-desktop
+FROM ros:humble
 
 # Environment variables
 # ROS_DISTRO here equals to 'humble'
