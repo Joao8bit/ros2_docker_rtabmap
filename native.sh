@@ -1,6 +1,6 @@
 # WARNING: This method is not really recommended, refer to the docker method if possible.
 
-export ROS_DISTRO=jazzy
+export ROS_DISTRO=humble
 # Dependencies installation
 sudo apt update && apt install --no-install-recommends -y \
     ninja-build gettext cmake unzip curl build-essential xterm python3-venv \
