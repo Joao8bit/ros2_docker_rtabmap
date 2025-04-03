@@ -1,6 +1,6 @@
 # WARNING: This method is not really recommended, refer to the docker method if possible.
 
-export ROS_DISTRO=humble
+export ROS_DISTRO=jazzy
 # Dependencies installation
 sudo apt update && apt install --no-install-recommends -y \
     ninja-build gettext cmake unzip curl build-essential xterm python3-venv \
@@ -20,9 +20,9 @@ git clone https://github.com/snt-spacer/rtabmap_livox.git ~/ros_ws/src/
 cd ~/ros_ws/
 # remove the rosdep sources list if it exists already
 sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
-rosdep init
-rosdep update
-rosdep install --from-paths ros_ws/src/ -y --ignore-src
+sudo rosdep init
+sudo rosdep update
+sudo rosdep install --from-paths src/ -y --ignore-src
 
 # Everything is complete, don't forget to build the workspace!
-cd ros_ws && colcon build
+cd /home/$USER/ros_ws && colcon build
