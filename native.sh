@@ -25,4 +25,4 @@ sudo rosdep update
 sudo rosdep install --from-paths src/ -y --ignore-src
 
 # Everything is complete, don't forget to build the workspace!
-cd /home/$USER/ros_ws && colcon build
+colcon build
