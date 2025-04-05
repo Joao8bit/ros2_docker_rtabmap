@@ -54,5 +54,7 @@ alias key_teleop='ros2 launch leo_teleop key_teleop.launch.xml'
 ```
 $ docker stop ros_humble
 ```
-
 Any other related questions please let me know privately or in the common communications chat!
+
+# April 2025 Update ⚠️
+A migration to the latest LTS ROS2 version Jazzy is currently a work-in-progress; native build not working yet, coming soon!
