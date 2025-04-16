@@ -56,5 +56,5 @@ $ docker stop ros_humble
 ```
 Any other related questions please let me know privately or in the common communications chat!
 
-# April 2025 Update ⚠️
-A migration to the latest LTS ROS2 version Jazzy is currently a work-in-progress; native build not working yet, coming soon!
+# April 16, 2025 Update 🤖
+A migration to the latest LTS ROS2 version Jazzy is now complete, feel free to try out the Docker version or even natively.
