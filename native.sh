@@ -1,4 +1,4 @@
-# WARNING: This method is not really recommended, refer to the docker method if possible.
+#!/bin/bash
 
 export ROS_DISTRO=jazzy
 # Dependencies installation
@@ -11,8 +11,19 @@ sudo apt update && apt install --no-install-recommends -y \
 echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
 
 # Getting all the source code into the ROS workspace
-mkdir -p ~/ros_ws/src
-git clone https://github.com/snt-spacer/leo_simulator-ros2.git ~/ros_ws/src/
+# Define the target directory
+TARGET_DIR="$HOME/ros_ws"
+
+# Check if the directory exists
+if [ -d "$TARGET_DIR" ]; then
+    echo "Directory $TARGET_DIR already exists."
+    exit 1
+else
+    echo "Creating directory $TARGET_DIR..."
+    mkdir -p "$TARGET_DIR"
+    echo "Directory created."
+fi
+git clone -b jazzy https://github.com/snt-spacer/leo_simulator-ros2.git ~/ros_ws/src/
 git clone https://github.com/snt-spacer/leo_common-ros2.git ~/ros_ws/src/
 git clone https://github.com/snt-spacer/rtabmap_livox.git ~/ros_ws/src/
 
@@ -25,4 +36,4 @@ sudo rosdep update
 sudo rosdep install --from-paths src/ -y --ignore-src
 
 # Everything is complete, don't forget to build the workspace!
-colcon build
+colcon build --symlink-install
