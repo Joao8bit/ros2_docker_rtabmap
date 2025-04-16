@@ -1,4 +1,4 @@
-FROM ros:humble
+FROM ros:jazzy
 
 # Environment variables
 # ROS_DISTRO here equals to 'humble'
@@ -29,7 +29,7 @@ RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
 # Getting all the source code into the ROS workspace
 RUN mkdir -p /root/ros_ws/src
 WORKDIR /root/ros_ws/src/
-RUN git clone https://github.com/snt-spacer/leo_simulator-ros2.git
+RUN git clone -b jazzy https://github.com/snt-spacer/leo_simulator-ros2.git
 RUN git clone https://github.com/snt-spacer/leo_common-ros2.git
 RUN git clone https://github.com/snt-spacer/rtabmap_livox.git
 
