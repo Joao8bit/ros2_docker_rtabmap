@@ -33,7 +33,9 @@ RUN git clone -b jazzy https://github.com/snt-spacer/leo_simulator-ros2.git
 RUN git clone https://github.com/snt-spacer/leo_common-ros2.git
 RUN git clone https://github.com/snt-spacer/rtabmap_livox.git
 
-RUN echo "alias luna_source='source ~/ros_ws/install/setup.bash" >> ~/.bash_aliases
+RUN touch ~/.bash_aliases
+
+RUN echo "alias luna_source='source ~/ros_ws/install/setup.bash'" >> ~/.bash_aliases
 RUN echo "alias luna_gazebo='ros2 launch leo_gz_bringup leo_gz.launch.py sim_world:=~/ros_ws/src/leo_simulator-ros2/leo_gz_worlds/worlds/lunalab2024.sdf'" >> ~/.bash_aliases
 RUN echo "alias luna_rtabmap='ros2 launch rtabmap_livox rtabmap_livox.launch.py'" >> ~/.bash_aliases
 RUN echo "alias joy_teleop='ros2 launch leo_teleop joy_teleop.launch.xml'" >> ~/.bash_aliases
