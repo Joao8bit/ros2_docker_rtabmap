@@ -28,10 +28,10 @@ $ ros2 launch leo_gz_bringup leo_gz.launch.py sim_world:=~/ros_ws/src/leo_simula
 ```
 $ ros2 launch rtabmap_livox rtabmap_livox.launch.py
 ```
-## Control the LeoRover with teleop (keyboard or joystick options available, chose one)
+## Control the LeoRover with teleop (keyboard or joystick options available, choose one)
 ```
 $ ros2 launch leo_teleop key_teleop.launch.xml
-$ ros2 launch leo_teleop joy_teleop.launch.xml
+$ ros2 launch leo_teleop joy_teleop.launch.xml #joy_dev:=/dev/input/jsX to choose joystick
 ```
 
 # Useful aliases for this project
