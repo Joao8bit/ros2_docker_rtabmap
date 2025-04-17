@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export ROS_DISTRO=jazzy
+
 # Dependencies installation
 sudo apt update && apt install --no-install-recommends -y \
     ninja-build gettext cmake unzip curl build-essential xterm python3-venv \
@@ -23,9 +24,11 @@ else
     mkdir -p "$TARGET_DIR"
     echo "Directory created."
 fi
-git clone -b jazzy https://github.com/snt-spacer/leo_simulator-ros2.git ~/ros_ws/src/
-git clone https://github.com/snt-spacer/leo_common-ros2.git ~/ros_ws/src/
-git clone https://github.com/snt-spacer/rtabmap_livox.git ~/ros_ws/src/
+git clone -b jazzy https://github.com/snt-spacer/leo_simulator-ros2.git ~/ros_ws/src/leo_simulator-ros2
+git clone https://github.com/snt-spacer/leo_common-ros2.git ~/ros_ws/src/leo_common-ros2
+git clone https://github.com/snt-spacer/rtabmap_livox.git ~/ros_ws/src/rtabmap_livox
+
+echo "export GZ_SIM_RESOURCE_PATH=$HOME/ros_ws/src/leo_simulator-ros2/leo_gz_worlds/models/" >> ~/.bashrc
 
 # Moving to ws dir to install dependencies
 cd ~/ros_ws/
@@ -33,7 +36,7 @@ cd ~/ros_ws/
 sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
 sudo rosdep init
 sudo rosdep update
-sudo rosdep install --from-paths src/ -y --ignore-src
+sudo rosdep install --from-paths src/ -y --ignore-src --rosdistro jazzy
 
 # Everything is complete, don't forget to build the workspace!
 colcon build --symlink-install
