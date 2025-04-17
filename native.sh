@@ -38,5 +38,12 @@ sudo rosdep init
 sudo rosdep update
 sudo rosdep install --from-paths src/ -y --ignore-src --rosdistro jazzy
 
+# Useful project aliases
+echo "alias luna_source='source ~/ros_ws/install/setup.bash'" >> ~/.bash_aliases
+echo "alias luna_gazebo='ros2 launch leo_gz_bringup leo_gz.launch.py sim_world:=~/ros_ws/src/leo_simulator-ros2/leo_gz_worlds/worlds/lunalab2024.sdf'" >> ~/.bash_aliases
+echo "alias luna_rtabmap='ros2 launch rtabmap_livox rtabmap_livox.launch.py'" >> ~/.bash_aliases
+echo "alias joy_teleop='ros2 launch leo_teleop joy_teleop.launch.xml'" >> ~/.bash_aliases
+echo "alias key_teleop='ros2 launch leo_teleop key_teleop.launch.xml'" >> ~/.bash_aliases
+echo "source ~/.bash_aliases" >> ~/.bashrc
 # Everything is complete, don't forget to build the workspace!
 colcon build --symlink-install
