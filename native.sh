@@ -46,5 +46,5 @@ echo "alias luna_rtabmap='ros2 launch rtabmap_livox rtabmap_livox.launch.py'" >>
 echo "alias joy_teleop='ros2 launch leo_teleop joy_teleop.launch.xml'" >> ~/.bash_aliases
 echo "alias key_teleop='ros2 launch leo_teleop key_teleop.launch.xml'" >> ~/.bash_aliases
 echo "source ~/.bash_aliases" >> ~/.bashrc
-# Everything is complete, don't forget to build the workspace!
-colcon build --symlink-install
+echo "Everything is complete, don't forget to colcon build the workspace!"
+# colcon build --symlink-install
