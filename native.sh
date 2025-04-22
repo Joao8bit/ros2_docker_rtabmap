@@ -46,4 +46,6 @@ echo "alias joy_teleop='ros2 launch leo_teleop joy_teleop.launch.xml'" >> ~/.bas
 echo "alias key_teleop='ros2 launch leo_teleop key_teleop.launch.xml'" >> ~/.bash_aliases
 echo "source ~/.bash_aliases" >> ~/.bashrc
 echo "Everything is complete, don't forget to colcon build the workspace!"
+
+cd ~/ros_ws
 # colcon build --symlink-install
