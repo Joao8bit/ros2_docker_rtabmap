@@ -4,7 +4,7 @@ export ROS_DISTRO=jazzy
 
 # Dependencies installation
 sudo apt install --no-install-recommends -y \
-    ninja-build git gettext cmake unzip curl build-essential xterm python3-venv \
+    ninja-build git colcon python3-rosdep gettext cmake unzip curl build-essential xterm python3-venv \
     ros-$ROS_DISTRO-rmw-cyclonedds-cpp ros-$ROS_DISTRO-rviz2 iputils-ping \
     ros-$ROS_DISTRO-rtabmap-ros ros-$ROS_DISTRO-navigation2 ros-$ROS_DISTRO-nav2-bringup ros-$ROS_DISTRO-leo-description ros-$ROS_DISTRO-ros-gz ros-$ROS_DISTRO-rtabmap-odom ros-$ROS_DISTRO-rtabmap-slam
 ros-$ROS_DISTRO-rtabmap-viz
