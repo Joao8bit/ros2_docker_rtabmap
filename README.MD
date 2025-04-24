@@ -19,24 +19,24 @@ $ docker exec -ti ros_humble bash
 
 ## Sourcing the workspace
 ```
-$ source ~/ros_ws/install/setup.bash
-```
-## RVIZ
-```
-$ rviz2
+source ~/ros_ws/install/setup.bash
 ```
 ## LunaLab simulation
 ```
-$ ros2 launch leo_gz_bringup leo_gz.launch.py sim_world:=~/ros_ws/src/leo_simulator-ros2/leo_gz_worlds/worlds/lunalab2024.sdf 
+ros2 launch leo_gz_bringup leo_gz.launch.py sim_world:=~/ros_ws/src/leo_simulator-ros2/leo_gz_worlds/worlds/lunalab2024.sdf 
 ```
 ## RTABMAP 
 ```
-$ ros2 launch rtabmap_livox rtabmap_livox.launch.py
+ros2 launch rtabmap_livox rtabmap_livox.launch.py
 ```
+## RVIZ
+```
+rviz2
+``` 
 ## Control the LeoRover with teleop (keyboard or joystick options available, choose one)
 ```
-$ ros2 launch leo_teleop key_teleop.launch.xml
-$ ros2 launch leo_teleop joy_teleop.launch.xml #joy_dev:=/dev/input/jsX to choose joystick
+ros2 launch leo_teleop key_teleop.launch.xml
+ros2 launch leo_teleop joy_teleop.launch.xml #joy_dev:=/dev/input/jsX to choose joystick
 ```
 
 # Useful aliases for this project
