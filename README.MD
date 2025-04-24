@@ -16,6 +16,11 @@ $ docker start ros_humble
 $ docker exec -ti ros_humble bash
 ```
 # Commands to run the simulation
+
+## Sourcing the workspace
+```
+source ~/ros_ws/install/setup.bash
+```
 ## RVIZ
 ```
 $ rviz2
