@@ -19,7 +19,7 @@ $ docker exec -ti ros_humble bash
 
 ## Sourcing the workspace
 ```
-source ~/ros_ws/install/setup.bash
+$ source ~/ros_ws/install/setup.bash
 ```
 ## RVIZ
 ```
