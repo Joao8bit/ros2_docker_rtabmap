@@ -15,6 +15,10 @@ $ xhost +
 $ docker start ros_humble
 $ docker exec -ti ros_humble bash
 ```
+# Installation
+```
+ wget - o - https://raw.githubusercontent.com/Joao8bit/ros2_docker_rtabmap/refs/heads/jazzy/native.sh | bash && sh native.sh
+```
 # Commands to run the simulation
 
 ## Sourcing the workspace
