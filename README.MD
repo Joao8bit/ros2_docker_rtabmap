@@ -25,6 +25,10 @@ $ docker exec -ti ros_humble bash
 ```
 source ~/ros_ws/install/setup.bash
 ```
+## Building the project (inside ~/ros_ws)
+```
+colcon build
+```
 ## LunaLab simulation
 ```
 ros2 launch leo_gz_bringup leo_gz.launch.py sim_world:=~/ros_ws/src/leo_simulator-ros2/leo_gz_worlds/worlds/lunalab2024.sdf 
