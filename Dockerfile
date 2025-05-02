@@ -1,7 +1,7 @@
 FROM ros:jazzy
 
 # Environment variables
-# ROS_DISTRO here equals to 'humble'
+# ROS_DISTRO here equals to 'jazzy'
 
 # Dependencies installation
 RUN apt update && apt install --no-install-recommends -y \
