@@ -6,7 +6,6 @@ FROM ros:humble
 # Dependencies installation
 RUN apt update && apt install --no-install-recommends -y \
     ninja-build \
-    gettext \ 
     cmake \
     unzip \
     curl \
@@ -16,27 +15,23 @@ RUN apt update && apt install --no-install-recommends -y \
     iputils-ping \
     vim \
     nano \
-    ros-$ROS_DISTRO-rmw-cyclonedds-cpp \
     ros-$ROS_DISTRO-rviz2 \
     ros-$ROS_DISTRO-rtabmap-ros \
     ros-$ROS_DISTRO-navigation2 \
-    ros-$ROS_DISTRO-nav2-bringup \
-    ros-$ROS_DISTRO-leo-description
+    ros-$ROS_DISTRO-nav2-bringup
 
 # Preparing ROS2 directly at boot of the docker 
 RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
 
 # Getting all the source code into the ROS workspace
-RUN mkdir -p /root/ros_ws/src
-WORKDIR /root/ros_ws/src/
-RUN git clone https://github.com/snt-spacer/leo_simulator-ros2.git
-RUN git clone https://github.com/snt-spacer/leo_common-ros2.git
-RUN git clone https://github.com/snt-spacer/rtabmap_livox.git
+# RUN git clone -b humble https://github.com/snt-spacer/leo_simulator-ros2.git ~/ros2_ws/src/leo_simulator-ros2
+# RUN git clone -b humble https://github.com/snt-spacer/leo_common-ros2.git ~/ros2_ws/src/leo_common-ros2
+# RUN git clone https://github.com/snt-spacer/rtabmap_livox.git ~/ros2_ws/src/rtabmap_livox
 
 RUN touch ~/.bash_aliases
 
-RUN echo "alias luna_source='source ~/ros_ws/install/setup.bash'" >> ~/.bash_aliases
-RUN echo "alias luna_gazebo='ros2 launch leo_gz_bringup leo_gz.launch.py sim_world:=~/ros_ws/src/leo_simulator-ros2/leo_gz_worlds/worlds/lunalab2024.sdf'" >> ~/.bash_aliases
+RUN echo "alias luna_source='source ~/ros2_ws/install/setup.bash'" >> ~/.bash_aliases
+RUN echo "alias luna_gazebo='ros2 launch leo_gz_bringup leo_gz.launch.py sim_world:=~/ros2_ws/src/leo_simulator-ros2/leo_gz_worlds/worlds/lunalab2024.sdf'" >> ~/.bash_aliases
 RUN echo "alias luna_rtabmap='ros2 launch rtabmap_livox rtabmap_livox.launch.py'" >> ~/.bash_aliases
 RUN echo "alias joy_teleop='ros2 launch leo_teleop joy_teleop.launch.xml'" >> ~/.bash_aliases
 RUN echo "alias key_teleop='ros2 launch leo_teleop key_teleop.launch.xml'" >> ~/.bash_aliases
@@ -45,12 +40,12 @@ RUN echo "alias key_teleop='ros2 launch leo_teleop key_teleop.launch.xml'" >> ~/
 RUN echo "source ~/.bash_aliases" >> ~/.bashrc
 
 # Moving to ws dir to install dependencies
-WORKDIR /root/ros_ws/
+# WORKDIR /root/ros2_ws/
 # remove the rosdep sources list if it exists already
-RUN rm /etc/ros/rosdep/sources.list.d/20-default.list
-RUN rosdep init
-RUN rosdep update
-RUN rosdep install --from-paths src -y --ignore-src
+# RUN rm /etc/ros/rosdep/sources.list.d/20-default.list
+# RUN rosdep init
+# RUN rosdep update
+# RUN rosdep install --from-paths src -y --ignore-src
 
 # Everything is complete, don't forget to build the workspace!
 # This command is greyed because we need to source ROS2 at the same time as we run it,
@@ -58,4 +53,4 @@ RUN rosdep install --from-paths src -y --ignore-src
 # RUN colcon build
 
 # Proposed solution: (https://stackoverflow.com/questions/72727733/how-to-use-colcon-build-in-a-dockerfile)
-RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash; colcon build"
+# RUN /bin/bash -c "source /opt/ros/$ROS_DISTRO/setup.bash; colcon build"
