@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export ROS_DISTRO=jazzy
+export ROS_DISTRO=humble
 # Dependencies installation
 sudo apt update && apt install --no-install-recommends -y \
     ninja-build gettext cmake unzip curl build-essential xterm python3-venv \
@@ -23,8 +23,8 @@ else
     mkdir -p "$TARGET_DIR"
     echo "Directory created."
 fi
-git clone -b jazzy https://github.com/snt-spacer/leo_simulator-ros2.git ~/ros_ws/src/
-git clone https://github.com/snt-spacer/leo_common-ros2.git ~/ros_ws/src/
+git clone -b humble https://github.com/snt-spacer/leo_simulator-ros2.git $HOME/ros2_ws/src/leo_simulator-ros2
+git clone -b humble https://github.com/snt-spacer/leo_common-ros2.git $HOME/ros2_ws/src/leo_common-ros2
 git clone https://github.com/snt-spacer/rtabmap_livox.git ~/ros_ws/src/
 
 # Moving to ws dir to install dependencies
